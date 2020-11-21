@@ -24,6 +24,15 @@ def get_total_cash(shop):
 
 def add_or_remove_cash(shop, cash_to_add_or_remove):
     shop["admin"]["total_cash"] += cash_to_add_or_remove
+
+# 4./
+# We are using the same function, as the test uses a negative 
+# number as argument at the place of the parameter 
+# 'cash_to_add_or_remove'. And adding a negative number will
+# result subtraction.
+
+def add_or_remove_cash(shop, cash_to_add_or_remove):
+    shop["admin"]["total_cash"] += cash_to_add_or_remove
         
 
 
