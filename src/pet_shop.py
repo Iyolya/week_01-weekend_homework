@@ -10,7 +10,7 @@ def get_pet_shop_name(shop):
 # 2./
 # We are accessing the value of the "total_cash" key
 # by accessing the internal dictionary "admin" inside 
-# the nested dictionary 'cc_pet_shop by':
+# the nested dictionary 'cc_pet_shop by'.
 
 def get_total_cash(shop):
     return shop["admin"]["total_cash"]
@@ -34,5 +34,12 @@ def add_or_remove_cash(shop, cash_to_add_or_remove):
 def add_or_remove_cash(shop, cash_to_add_or_remove):
     shop["admin"]["total_cash"] += cash_to_add_or_remove
         
+# 5./
+# ....
+
+def get_pets_sold(shop):
+    return shop["admin"]["pets_sold"]
+
+    
 
 
