@@ -90,7 +90,19 @@ def find_pet_by_name(shop, pet_name):
         if pet["name"] == pet_name:
             return pet
 
+# 12./ NO
+# ....
 
+# def remove_pet_by_name(shop, pet_name):
+#     for pet in shop["pets"]:
+#         if pet["name"] == pet_name:
+#             pet.clear()
+
+# 13./ WORKS!!!
+# ....
+
+def add_pet_to_stock(shop, new_pet):
+    shop["pets"].append(new_pet)
 
 
 
