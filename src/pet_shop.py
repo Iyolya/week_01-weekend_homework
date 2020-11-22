@@ -105,7 +105,11 @@ def add_pet_to_stock(shop, new_pet):
     shop["pets"].append(new_pet)
 
 
+# 14./ WORKS!!!
+# ....
 
+def get_customer_cash(customers):
+        return (customers["cash"])
 
 
 
