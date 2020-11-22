@@ -119,9 +119,14 @@ def remove_customer_cash(customer, cash_to_remove):
     customer["cash"] -= cash_to_remove
 
 
-# 16./ 
+# 16./ WORKS!!!
 # ....
 
 def get_customer_pet_count(customer):
-        return sum(customer["pets"])
+        return len(customer["pets"])
 
+# 17./ WORKS!!!
+# ....
+
+def add_pet_to_customer(customer, new_pet):
+    customer["pets"].append(new_pet)
