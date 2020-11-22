@@ -146,3 +146,9 @@ def customer_can_afford_pet(customer, new_pet):
         return True
     else:
         return False
+
+# 20./ WORKS!!!
+# ....
+
+def test_customer_can_afford_pet__exact_funds(self):
+    return customer["cash"] == new_pet["price"]
