@@ -25,6 +25,8 @@ def get_total_cash(shop):
 def add_or_remove_cash(shop, cash_to_add_or_remove):
     shop["admin"]["total_cash"] += cash_to_add_or_remove
 
+   
+
 # 4./
 # We are using the same function, as the test uses a negative 
 # number as argument at the place of the parameter 
@@ -33,6 +35,7 @@ def add_or_remove_cash(shop, cash_to_add_or_remove):
 
 def add_or_remove_cash(shop, cash_to_add_or_remove):
     shop["admin"]["total_cash"] += cash_to_add_or_remove
+
         
 # 5./
 # ....
@@ -56,23 +59,23 @@ def get_stock_count(shop):
 # ....
 
 def get_pets_by_breed(shop, breed):
-    list = []
+    pets_by_breed = []
     for pet in shop["pets"]:
         if pet["breed"] == breed:
-            list.append(pet["name"])
+            pets_by_breed.append(pet)
         else:
-            return list
+            return pets_by_breed
 
 # 9./
 # ....
 
 def get_pets_by_breed(shop, breed):
-    list = []
+    list_of_pets = []
     for pet in shop["pets"]:
         if pet["breed"] == breed:
-            list.append(pet["name"])
+            list_of_pets.append(pet["name"])
         else:
-            return list
+            return list_of_pets
 
 # 10./
 # ....
@@ -82,6 +85,7 @@ def find_pet_by_name(shop, pet_name):
         if pet["name"] == pet_name:
             return pet
 
+
 # 11./
 # ....
 
@@ -90,13 +94,22 @@ def find_pet_by_name(shop, pet_name):
         if pet["name"] == pet_name:
             return pet
 
-# 12./ NO
+# 12./ WORKS!!!
 # ....
 
 # def remove_pet_by_name(shop, pet_name):
 #     for pet in shop["pets"]:
-#         if pet["name"] == pet_name:
-#             pet.clear()
+#         for pet_key in pet:
+#             if pet["name"] == pet_name:
+#                 pet.clear(pet_key.value())
+
+def remove_pet_by_name(shop, pet_name):
+    for pet in shop["pets"]:
+        if pet["name"] == pet_name:
+            # pet.clear(pet.value())
+            shop["pets"].remove(pet)
+
+           
 
 # 13./ WORKS!!!
 # ....
@@ -109,7 +122,7 @@ def add_pet_to_stock(shop, new_pet):
 # ....
 
 def get_customer_cash(customer):
-        return (customer["cash"])
+        return customer["cash"]
 
 
 # 15./ WORKS!!!
@@ -152,3 +165,31 @@ def customer_can_afford_pet(customer, new_pet):
 
 def test_customer_can_afford_pet__exact_funds(self):
     return customer["cash"] == new_pet["price"]
+
+
+
+
+
+
+# 
+# 21./ INTEGRATION
+# ....
+
+# def sell_pet_to_customer(shop, pet, customer):
+#     get_customer_pet_count(customer)
+#     get_pets_sold(shop)
+#     get_customer_cash(customer)
+#     get_total_cash(shop)
+
+# @unittest.skip("delete this line to run the test")
+
+def sell_pet_to_customer(shop, pet_name, customer):
+    customer = self.customers[0]
+    pet = find_pet_by_name(self.cc_pet_shop,"Arthur")
+
+    # sell_pet_to_customer(self.cc_pet_shop, pet, customer)
+
+    # self.assertEqual(1, get_customer_pet_count(customer))
+    # self.assertEqual(1, get_pets_sold(self.cc_pet_shop))
+    # self.assertEqual(100, get_customer_cash(customer))
+    # self.assertEqual(1900, get_total_cash(self.cc_pet_shop))
