@@ -112,6 +112,10 @@ def get_customer_cash(customers):
         return (customers["cash"])
 
 
+# 15./ 
+# ....
 
+def remove_customer_cash(customer, cash_to_remove):
+    customer["cash"] -= cash_to_remove
 
 
