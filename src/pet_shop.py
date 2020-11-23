@@ -22,19 +22,25 @@ def get_total_cash(shop):
 # of ["total_cash"] key, and then we use addition assignment
 # to assign the result to the key ["total_cash"].
 
+# def add_or_remove_cash(shop, cash_to_add_or_remove):
+#     shop["admin"]["total_cash"] += cash_to_add_or_remove
+
 def add_or_remove_cash(shop, cash_to_add_or_remove):
-    shop["admin"]["total_cash"] += cash_to_add_or_remove
+    total_cash = get_total_cash(shop) 
+    total_cash += cash_to_add_or_remove
 
    
-
 # 4./
 # We are using the same function, as the test uses a negative 
 # number as argument at the place of the parameter 
 # 'cash_to_add_or_remove'. And adding a negative number will
 # result subtraction.
 
-def add_or_remove_cash(shop, cash_to_add_or_remove):
-    shop["admin"]["total_cash"] += cash_to_add_or_remove
+# def add_or_remove_cash(shop, cash_to_add_or_remove):
+#     total_cash = get_total_cash(shop) 
+#     total_cash += cash_to_add_or_remove
+
+    
 
         
 # 5./
@@ -147,24 +153,25 @@ def add_pet_to_customer(customer, new_pet):
 # 18./ WORKS!!!
 # ....
 
+# def customer_can_afford_pet(customer, new_pet):
+#     return customer["cash"] >= new_pet["price"]
+
 def customer_can_afford_pet(customer, new_pet):
-    if customer["cash"] >= new_pet["price"]:
-        return True
+    return get_customer_cash(customer) >= new_pet["price"]
+       
     
 # 19./ WORKS!!!
-# ....
+# SAME
 
-def customer_can_afford_pet(customer, new_pet):
-    if customer["cash"] >= new_pet["price"]:
-        return True
-    else:
-        return False
+# def customer_can_afford_pet(customer, new_pet):
+#     return customer["cash"] >= new_pet["price"]
+        
 
 # 20./ WORKS!!!
-# ....
+# SAME
 
-def test_customer_can_afford_pet__exact_funds(self):
-    return customer["cash"] == new_pet["price"]
+# def customer_can_afford_pet(customer, new_pet):
+#     return customer["cash"] >= new_pet["price"]
 
 
 
@@ -175,21 +182,15 @@ def test_customer_can_afford_pet__exact_funds(self):
 # 21./ INTEGRATION
 # ....
 
-# def sell_pet_to_customer(shop, pet, customer):
-#     get_customer_pet_count(customer)
-#     get_pets_sold(shop)
-#     get_customer_cash(customer)
-#     get_total_cash(shop)
+def sell_pet_to_customer(shop, new_pet, customer):
+    if customer_can_afford_pet(customer, new_pet) == True:
+        add_pet_to_customer(customer, new_pet)
+        get_customer_pet_count(customer)
+        get_pets_sold(shop)
+        get_customer_cash(customer)
+        get_total_cash(shop)
+        increase_pets_sold(shop, get_customer_pet_count(customer))
 
-# @unittest.skip("delete this line to run the test")
+       
 
-def sell_pet_to_customer(shop, pet_name, customer):
-    customer = self.customers[0]
-    pet = find_pet_by_name(self.cc_pet_shop,"Arthur")
 
-    # sell_pet_to_customer(self.cc_pet_shop, pet, customer)
-
-    # self.assertEqual(1, get_customer_pet_count(customer))
-    # self.assertEqual(1, get_pets_sold(self.cc_pet_shop))
-    # self.assertEqual(100, get_customer_cash(customer))
-    # self.assertEqual(1900, get_total_cash(self.cc_pet_shop))
